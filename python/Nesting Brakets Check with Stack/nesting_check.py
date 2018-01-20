@@ -1,9 +1,17 @@
+# 괄호들의 sequence를 토큰으로 받아 열린괄호와 닫힌 괄호가 올바르게 입력되었는지를 판별하는 문제.
+
+# Main solution: Stack의 push와 pop을 이용해서 sequence에서 열린괄호가 들어왔을 경우 push, 닫힌 괄호가 들어올 경우 열린괄호가 마지막 인덱스에 있을 경우 pop.
+
+# 닫힌괄호에 대응되지 않는 열린괄호가 마지막 인덱스에 있을 경우는 false, ex: {]]}
+# token을 마지막까지 check했을 때 stack에 남아있는 element가 있다면 (열린괄호가 남아있다면) false
+
 def get_next_token():
     # *** wrong cases ***
     # return [1,6,0]
     # return [1,5,1,2,6,2,3,6,6,4,0]
     # return [1, 3, 2, 4, 0]
     # return [4, 3, 0]
+    # return [3,6,6,4,0]
 
     # *** true cases ***
     # return [1, 2, 0]
@@ -11,11 +19,6 @@ def get_next_token():
 
 
 def test_nesting(tokens):
-    brakets_dic = {2:1, 4:3, 6:5}
-    stack = []
-
-
-def test_nesting_wrong_answer(tokens):
     brakets_dic = {2:1, 4:3, 6:5}
     stack = []
     for token in tokens:
@@ -44,7 +47,7 @@ def test_nesting_wrong_answer(tokens):
 
 
 def main():
-    print(test_nesting_wrong_answer(get_next_token()))
+    print(test_nesting(get_next_token()))
 
 if __name__ == "__main__":
     main()
